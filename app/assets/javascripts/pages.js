@@ -14,6 +14,21 @@ this.TodoController = function($scope, Todo) {
 
   $scope.addTodo = function() {
 
+    // validate our input
+    // abort our save if we fail
+    // blah write tests for these!
+    if($scope.newTodo == undefined) {
+      $scope.message = "Todo cannot be blank!";
+      return;
+    } else {
+      for(var i = 0; i < $scope.todos.length; i++) {
+        if( $scope.todos[i].label.toLowerCase() == $scope.newTodo.label.toLowerCase() ) {
+          $scope.message = "You already have to do that!";
+          return;
+        }
+      }
+    }
+
     var todo = Todo.save($scope.newTodo,
       function() {  },
       function() {
