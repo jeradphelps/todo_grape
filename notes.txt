@@ -1,0 +1,90 @@
+Things to do
+------------
+readme
+styles
+auth
+docs
+clear message after clicking add
+
+order to redo
+-------------
+model/api file/api specs/routes/gemfile
+angular/routes/feature specs/
+
+
+
+add dates
+
+
+readme
+--------
+install
+tests
+docs
+api
+front end
+auth
+routes
+versioning?
+
+conversations
+grape/rails v grape/rack
+angular
+authentication
+
+
+
+http://docs.angularjs.org/api/ng/service/$http
+angular success/failure callbacks?
+read up on versioning
+vendor?
+validations.  They need to be finished, and they need tests.  Can we a) just keep it on the server, or b) use some nice angular functionality?
+entities?
+
+return empty contnet body in put and delete?
+solution to passing empty functions in js?
+
+
+
+AUTHENTICATION
+--------------
+In angular
+  if !authorized:
+    pop up a window to get a key
+    enter username & password to hit
+    a key endpoint.
+
+  when we get the key, use that in 
+  the resource declaration (param defaults)
+
+In the api
+  keys module
+    Add a key endpoint that issues keys
+    based on whether a correct u/p was sent (POST)
+  todos module
+    before each api method, authenticate the key sent.
+
+To make it so users didn't have to log in all the time,
+You could use sessions in rails on the angular app.  Authenticate to
+the api with Rails, then pass that key to your angular app.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,2 +1,19 @@
-%h1 Pages#index
-%p Find me in app/views/pages/index.html.haml
+%h1
+  Todos
+
+%div{ "ng-controller" => "TodoController" }
+  %div.message-text {{message}}
+  %form{ "ng-submit" => "addTodo()" }
+    %input#new-todo{ "type" => "text", "ng-model" => "newTodo.label" }
+    %input{ "type" => "submit", "value" => "Add" }
+
+  %table
+    %tr{ "ng-repeat" => "todo in todos" }
+      %td
+        %button{ "ng-click" => "toggleDone(todo)", "ng-switch" => "", "on" => "todo.done" }
+          %span{ "ng-switch-when" => "true" } Not Done
+          %span{ "ng-switch-default" => "" } Done
+      %td{ "ng-class" => "{done: todo.done}" } {{todo.label}}
+      %td
+        %button{ "ng-click" => "delete(todo)" }
+          Delete
