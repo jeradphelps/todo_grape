@@ -9,5 +9,9 @@ module API
   
     mount API::TodosV1
     mount API::AccessTokensV1
+
+    add_swagger_documentation :base_path => "http://localhost:3000/api", 
+                                :markdown => true, 
+                                :hide_documentation_path => true
   end
 end

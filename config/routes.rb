@@ -3,4 +3,6 @@ TodoGrape::Application.routes.draw do
   namespace :api do
     mount API::Root => '/'
   end
+
+  mount GrapeSwaggerRails::Engine => '/apidoc'
 end

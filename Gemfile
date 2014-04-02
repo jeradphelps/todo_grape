@@ -15,6 +15,8 @@ gem 'haml'
 gem 'haml-rails'
 gem 'angularjs-rails'
 gem "font-awesome-rails"
+gem 'grape-swagger'
+gem 'grape-swagger-rails'
 
 group :development, :test do
   gem 'pry-rails'
