@@ -44,25 +44,29 @@ feature 'todos', :js => true do
     Capybara.match = :first
 
     expect {
-      click_button "Done"
+      within "table tr td" do
+        click_button ""
+      end
       sleep 2 # blah we need to wait for ajax here
     }.to change {
       Todo.where(done: true).count
     }.by(1)
 
     expect(page).to have_css "td.done"
-    expect(page).to have_content "Todo Successfully Marked As Done!"
+    expect(page).to have_content "Successfully Marked As Complete!"
 
 
     expect {
-      click_button "Not Done"
+      within "table tr td" do
+        click_button "" # this is the 
+      end
       sleep 2 # blah we need to wait for ajax here
     }.to change {
       Todo.where(done: true).count
     }.by(-1)
 
     expect(page).to_not have_css "td.done"
-    expect(page).to have_content "Todo Successfully Marked As Not Done!"
+    expect(page).to have_content "Successfully Marked As Incomplete!"
   end
 
   scenario "can delete todos" do
@@ -84,27 +88,18 @@ feature 'todos', :js => true do
   scenario "cannot add an empty todo" do
     expect { click_button "Add" }.to change { Todo.count }.by(0)
     expect(page).to have_content("Todo cannot be blank!")
-    # We know Todo.count has not changed, so use it to verify we added nothing to the interface
-    page.should have_css("table tr", :count => Todo.count)
+    # We know Todo.count has not changed
+    # So the row count on the interface should be the original (plus one for the header)
+    page.should have_css("table tr", :count => Todo.count + 1)
   end
-
-  # scenario "cannot add an empty todo after typing then deleting" do
-  #   fill_in "new-todo", with: "learn grape"
-  #   fill_in "new-todo", with: ""
-
-  #   expect { click_button "Add" }.to change { Todo.count }.by(0)
-  #   # expect(page).to have_content("Todo cannot be blank!")
-  #   # We know Todo.count has not changed, so use it to verify we added nothing to the interface
-  #   page.should have_css("table tr", :count => Todo.count)
-  # end
-
   scenario "cannot add a duplicate todo" do
     fill_in "new-todo", with: "first todo"
     
     expect { click_button "Add" }.to change { Todo.count }.by(0)
-    expect(page).to have_content("You already have to do that!")
-    # We know Todo.count has not changed, so use it to verify we added nothing to the interface
-    page.should have_css("table tr", :count => Todo.count)
+    expect(page).to have_content("You already have to do")
+    # We know Todo.count has not changed
+    # So the row count on the interface should be the original (plus one for the header)
+    page.should have_css("table tr", :count => Todo.count + 1)
   end
 end
 

@@ -1,19 +1,25 @@
-%h1
-  Todos
-
 %div{ "ng-controller" => "TodoController" }
-  %div.message-text {{message}}
-  %form{ "ng-submit" => "add()" }
-    %input#new-todo{ "type" => "text", "ng-model" => "newTodo.label" }
-    %input{ "type" => "submit", "value" => "Add" }
+  .message-text{ "ng-class" => "messageClass" } {{message}}
 
-  %table
-    %tr{ "ng-repeat" => "todo in todos" }
-      %td
-        %button{ "ng-click" => "toggleDone(todo)", "ng-switch" => "", "on" => "todo.done" }
-          %span{ "ng-switch-when" => "true" } Not Done
-          %span{ "ng-switch-default" => "" } Done
-      %td{ "ng-class" => "{done: todo.done}" } {{todo.label}}
-      %td
-        %button{ "ng-click" => "delete(todo)" }
-          Delete
+  .content-grid-wrapper.pure-g-r
+    .content-container.pure-u-1-5.pure-hidden-tablet.pure-hidden-phone
+    .content-container.pure-u-4-5
+      .instructional-text Type your todo below and click add.
+      %form{ "ng-submit" => "add()" }
+        %input#new-todo{ "type" => "text", "ng-model" => "newTodo.label" }
+        %input.add-button{ "type" => "submit", "value" => "Add" }
+
+      %table
+        %thead
+          %th
+          %th Todo Label
+          %th
+        %tr{ "ng-repeat" => "todo in todos" }
+          %td
+            %button.done-button{ "ng-click" => "toggleDone(todo)", "ng-switch" => "", "on" => "todo.done" }
+              %i.fa.fa-check-square-o{ "ng-switch-when" => "true" }
+              %i.fa.fa-square-o{ "ng-switch-default" => "" }
+          %td{ "ng-class" => "{done: todo.done}" } {{todo.label}}
+          %td
+            %button.delete-button{ "ng-click" => "delete(todo)" }
+              Delete

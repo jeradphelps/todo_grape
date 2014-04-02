@@ -4,12 +4,6 @@ readme
 styles
 auth
 docs
-clear message after clicking add
-
-order to redo
--------------
-model/api file/api specs/routes/gemfile
-angular/routes/feature specs/
 
 
 

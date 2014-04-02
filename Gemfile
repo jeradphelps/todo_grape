@@ -14,6 +14,7 @@ gem 'thin'
 gem 'haml'
 gem 'haml-rails'
 gem 'angularjs-rails'
+gem "font-awesome-rails"
 
 group :development, :test do
   gem 'pry-rails'
