@@ -51,6 +51,7 @@ The angular client implements the authentication scheme described above.  Upon l
 
 ## Run Tests!
 
+    > rake db:test:clone
     > bundle exec rspec
     
 ## Interesting Things
