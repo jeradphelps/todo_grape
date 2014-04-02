@@ -1,6 +1,7 @@
 #Todo Grape
 
 A Grape api mounted on rails with an angular front end.  
+Grape can be run as a rack app, but for the sake of keeping the client and api in one appliation I mounted it to rails.  The Angular App uses the api endpoints just as if it were a completely disparate application.
 
 ## To Run Locally
 
