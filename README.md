@@ -1,28 +1,31 @@
-##Todo Grape
+#Todo Grape
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+A Grape api mounted on rails with an angular front end.  
 
-Things you may want to cover:
+## To Run Locally
 
-* Ruby version
+    > git clone https://github.com/jeradphelps/todo_grape.git
+    > bundle
+    > rake db:migrate
+    > rails s
+    
+## Todo Api endpoints
 
-* System dependencies
+version=v1, method=GET, path=/todos(.:format)
+version=v1, method=GET, path=/todos/:id(.:format)
+version=v1, method=POST, path=/todos(.:format)
+version=v1, method=PUT, path=/todos/:id(.:format)
+version=v1, method=DELETE, path=/todos/:id(.:format)
 
-* Configuration
+## Authentication
 
-* Database creation
+Does not exist yet
 
-* Database initialization
+## Run Tests
 
-* How to run the test suite
+    > bundle exec rspec
+    
+## Interesting Things
+* Grape as a Rack app v Grape on Rails
+* Angular
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
