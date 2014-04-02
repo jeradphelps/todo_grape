@@ -2,8 +2,25 @@
   .message-text{ "ng-class" => "messageClass" } 
     %span {{message}}
 
+  .content-grid-wrapper.pure-g-r{ "ng-controller" => "AccessTokenController" }
+    .content-container.pure-u-4-5{ "ng-hide" => "haveToken()" }
+      Looks like you might need to log in! This app will be read-only until you do.
+      %br
+      Hint: The username is "username" and the password is "password", the form is already
+      filled out for you.
+      %form{ "ng-submit" => "add()" }
+        u: 
+        %input#username{ "type" => "text", "ng-model" => "newAccessToken.username" }
+        p: 
+        %input#password{ "type" => "text", "ng-model" => "newAccessToken.password" }
+        %input.add-button{ "type" => "submit", "value" => "Login" }
+    .content-container.pure-u-4-5{ "ng-hide" => "!haveToken()" }
+      %button.delete-button{ "ng-click" => "destroyToken()" }
+        Log Out
+    %div.pure-u-4-5{style: "border: 1px solid black"}
+      token: {{getToken()}}
+
   .content-grid-wrapper.pure-g-r
-    .content-container.pure-u-1-5.pure-hidden-tablet.pure-hidden-phone
     .content-container.pure-u-4-5
       .instructional-text Type your todo below and click add.
       %form{ "ng-submit" => "add()" }

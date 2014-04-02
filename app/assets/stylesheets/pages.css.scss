@@ -38,16 +38,30 @@ form {
   .content-container {
     padding-top: 50px;
     @media(max-width: 978px) { padding: 50px 25px; }
+    margin: 0 auto;
   
     input[type=text] {
       margin: 30px 0;
-      color: #888888;
+      color: #555555;
     }
     .add-button {
       @extend .pure-button; 
       background-color: green;
       color: white;
       margin: 30px 0;
+    }
+    .delete-button {
+      @extend .pure-button; 
+      background-color: #bc272e;
+      color: white;
+    }
+
+    .done-button {
+      @extend .pure-button; 
+      background-color: #37a9d5;
+      color: white;
+      width: 50px;
+      i { text-align: center; }
     }
 
     table {
@@ -56,20 +70,6 @@ form {
       width: 100%;
       @media(min-width: 979px) { width: 50%; }
       margin-bottom: 300px;
-
-      .delete-button {
-        @extend .pure-button; 
-        background-color: #bc272e;
-        color: white;
-      }
-
-      .done-button {
-        @extend .pure-button; 
-        background-color: #37a9d5;
-        color: white;
-        width: 50px;
-        i { text-align: center; }
-      }
     }
   }
 }
