@@ -1,43 +1,8 @@
 Things to do
 ------------
-readme
 auth
-docs
-
-
-
-add dates
-
-
-readme
---------
-install
-tests
-docs
-api
-front end
-auth
-routes
-versioning?
-
-conversations
-grape/rails v grape/rack
-angular
-authentication
-
-
-
-http://docs.angularjs.org/api/ng/service/$http
-angular success/failure callbacks?
-read up on versioning
-vendor?
-validations.  They need to be finished, and they need tests.  Can we a) just keep it on the server, or b) use some nice angular functionality?
-entities?
-
-return empty contnet body in put and delete?
-solution to passing empty functions in js?
-
-
+sleep in tests
+docs?
 
 AUTHENTICATION
 --------------
@@ -62,7 +27,11 @@ You could use sessions in rails on the angular app.  Authenticate to
 the api with Rails, then pass that key to your angular app.
 
 
-
+version=v1, method=GET, path=/todos(.:format)
+version=v1, method=GET, path=/todos/:id(.:format)
+version=v1, method=POST, path=/todos(.:format)
+version=v1, method=PUT, path=/todos/:id(.:format)
+version=v1, method=DELETE, path=/todos/:id(.:format)
 
 
 
