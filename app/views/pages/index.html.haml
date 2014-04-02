@@ -17,15 +17,13 @@
     .content-container.pure-u-4-5{ "ng-hide" => "!haveToken()" }
       %button.delete-button{ "ng-click" => "destroyToken()" }
         Log Out
-    %div.pure-u-4-5{style: "border: 1px solid black"}
-      token: {{getToken()}}
 
   .content-grid-wrapper.pure-g-r
     .content-container.pure-u-4-5
       .instructional-text Type your todo below and click add.
       %form{ "ng-submit" => "add()" }
         %input#new-todo{ "type" => "text", "ng-model" => "newTodo.label" }
-        %input.add-button{ "type" => "submit", "value" => "Add" }
+        %input.add-button{ "type" => "submit", "value" => "Add", "ng-disabled" => "!haveToken()" }
 
       %table
         %thead
@@ -34,10 +32,10 @@
           %th
         %tr{ "ng-repeat" => "todo in todos" }
           %td
-            %button.done-button{ "ng-click" => "toggleDone(todo)", "ng-switch" => "", "on" => "todo.done" }
+            %button.done-button{ "ng-click" => "toggleDone(todo)", "ng-switch" => "", "on" => "todo.done", "ng-disabled" => "!haveToken()" }
               %i.fa.fa-check-square-o{ "ng-switch-when" => "true" }
               %i.fa.fa-square-o{ "ng-switch-default" => "" }
           %td{ "ng-class" => "{done: todo.done}" } {{todo.label}}
           %td
-            %button.delete-button{ "ng-click" => "delete(todo)" }
+            %button.delete-button{ "ng-click" => "delete(todo)", "ng-disabled" => "!haveToken()" }
               Delete

@@ -26,7 +26,7 @@ app.service("AccessToken", function() {
 
   this.token = "";
   this.getToken = function() {
-    console.log("getting token..."+this.token);
+    // console.log("getting token..."+this.token);
     return this.token;
   }
   this.setToken = function(token) {
@@ -46,7 +46,7 @@ app.service("AccessToken", function() {
 
 // Create a Todo resource to match our Todo api endpoints
 app.factory("Todo", function($resource, AccessToken) {
-  console.log("aaaaa"+AccessToken.getToken())
+  // console.log("aaaaa"+AccessToken.getToken())
   return $resource("/api/todos/:id", 
     { id: "@id",
       access_token: function() {
@@ -100,7 +100,7 @@ this.AccessTokenController = function($scope, $http, AccessToken) {
 
 }
 
-this.TodoController = function($scope, Todo) {
+this.TodoController = function($scope, Todo, AccessToken) {
   $scope.ERROR_MESSAGE_CLASS = "error-message";
   $scope.EMPTY_MESSAGE_CLASS = "empty-message";
   $scope.SUCCESS_MESSAGE_CLASS = "success-message";
@@ -193,6 +193,10 @@ this.TodoController = function($scope, Todo) {
 
     // the object is valid if we make it here
     return true;
+  }
+
+  $scope.haveToken = function() {
+    return AccessToken.haveToken();
   }
 
 };
