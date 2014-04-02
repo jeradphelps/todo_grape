@@ -33,7 +33,7 @@ version=v1, method=DELETE, path=/todos/:id(.:format)
 
 ### API
 
-The todo endpoints have a very simple authentication schema implemented.  The non-get methods need an access token to be passed as a parameter with each request.  If that access token is found in the database, the request will proceed.  Else a 401 Unauthorized error will be thrown.
+The todo endpoints have a very simple authentication scheme implemented.  The non-get methods need an access token to be passed as a parameter with each request.  If that access token is found in the database, the request will proceed.  Else a 401 Unauthorized error will be thrown.
 
 A client application can request an api key using the access_token POST method.  This method requires a username and password as arguments.  If username and password validation succeeds, an access token is passed back to the requester.
 
