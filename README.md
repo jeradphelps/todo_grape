@@ -17,7 +17,6 @@ version=v1, method=POST, path=/todos(.:format)
 version=v1, method=PUT, path=/todos/:id(.:format)
 version=v1, method=DELETE, path=/todos/:id(.:format)
 
-
 ## Authentication
 
 Does not exist yet
