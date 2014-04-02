@@ -35,10 +35,13 @@ form {
 }
 
 .content-grid-wrapper {
+    margin-left:250px;
+    @media(max-width: 978px) { 
+      padding: 50px 25px;
+      margin-left: 0; 
+    }
   .content-container {
     padding-top: 50px;
-    @media(max-width: 978px) { padding: 50px 25px; }
-    margin: 0 auto;
   
     input[type=text] {
       margin: 30px 0;
@@ -68,7 +71,6 @@ form {
       @extend .pure-table;
       @extend .pure-table-horizontal;
       width: 100%;
-      @media(min-width: 979px) { width: 50%; }
       margin-bottom: 300px;
     }
   }
