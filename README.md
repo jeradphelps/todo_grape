@@ -8,6 +8,7 @@ A Grape api mounted on rails with an angular front end.
     > bundle
     > rake db:migrate
     > rails s
+    > in your browser, visit http://localhost:3000
     
 ## Todo Api endpoints
 
