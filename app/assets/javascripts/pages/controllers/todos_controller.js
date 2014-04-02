@@ -4,6 +4,7 @@
 // resource.
 this.TodoController = function($scope, Todo, AccessToken) {
 
+  // This collection represents the main list of todos shown to the user
   $scope.todos = Todo.query(
     function() {  },
     function() { 

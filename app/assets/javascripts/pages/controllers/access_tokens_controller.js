@@ -19,17 +19,17 @@ this.AccessTokenController = function($scope, $http, AccessToken) {
     if($scope.newAccessToken == undefined 
       || $scope.newAccessToken.username == "" 
       || $scope.newAccessToken.password == "") {
-      $scope.setFlashMessage("Please Enter Your Credentials!",$scope.$parent.ERROR_MESSAGE_CLASS);
+      $scope.setFlashMessage("Please Enter Your Credentials!",$scope.ERROR_MESSAGE_CLASS);
       return;
     }
 
     $http.post('/api/access_tokens', { username: $scope.newAccessToken.username, password: $scope.newAccessToken.password })
       .success(function(response) {
         AccessToken.setToken(response.token);
-        $scope.setFlashMessage("Success! You Are Logged In!",$scope.$parent.SUCCESS_MESSAGE_CLASS);
+        $scope.setFlashMessage("Success! You Are Logged In!",$scope.SUCCESS_MESSAGE_CLASS);
       })
       .error(function() {
-        $scope.setFlashMessage("Invalid Username Or Password!",$scope.$parent.ERROR_MESSAGE_CLASS);
+        $scope.setFlashMessage("Invalid Username Or Password!",$scope.ERROR_MESSAGE_CLASS);
       })
   }
 
@@ -40,7 +40,7 @@ this.AccessTokenController = function($scope, $http, AccessToken) {
   }
 
   $scope.destroyToken = function() {
-    $scope.setFlashMessage("You've been logged out!",$scope.$parent.ERROR_MESSAGE_CLASS);
+    $scope.setFlashMessage("You've been logged out!",$scope.ERROR_MESSAGE_CLASS);
     return AccessToken.destroyToken();
   }
 
