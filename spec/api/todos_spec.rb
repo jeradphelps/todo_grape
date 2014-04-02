@@ -1,13 +1,13 @@
 require 'spec_helper'
 
-describe Todos::API do
+describe TodosV1 do
   include Rack::Test::Methods
 
   def app
-    Todos::API
+    TodosV1
   end
 
-  describe Todos::API do
+  describe TodosV1 do
     describe "GET /todos" do
       it "returns an empty array of todos" do
         get "/todos"
