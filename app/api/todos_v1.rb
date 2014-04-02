@@ -21,7 +21,7 @@ class TodosV1 < Grape::API
     desc "Create a todo."
     params do
       requires :label, type: String, desc: "Todo label."
-      requires :access_token, type: String, desc: "Your Access Token."
+      # requires :access_token, type: String, desc: "Your Access Token."
     end
     post do
       authenticate! params[:access_token]
@@ -34,7 +34,7 @@ class TodosV1 < Grape::API
     params do
       requires :id, type: Integer, desc: "Todo ID."
       requires :label, type: String, desc: "Todo label."
-      requires :access_token, type: String, desc: "Your Access Token."
+      # requires :access_token, type: String, desc: "Your Access Token."
     end
     put ':id' do
       authenticate! params[:access_token]
@@ -49,7 +49,7 @@ class TodosV1 < Grape::API
     desc "Delete a Todo."
     params do
       requires :id, type: Integer, desc: "Todo ID."
-      requires :access_token, type: String, desc: "Your Access Token."
+      # requires :access_token, type: String, desc: "Your Access Token."
     end
     delete ':id' do
       authenticate! params[:access_token]
