@@ -23,7 +23,7 @@ feature 'todos', :js => true do
 
     expect {
       click_button "Add"
-      sleep 2 # blah we need to wait for ajax here
+      wait_for_ajax
     }.to change {
       Todo.count
     }.by(1)
@@ -47,7 +47,7 @@ feature 'todos', :js => true do
       within "table tr td" do
         click_button ""
       end
-      sleep 2 # blah we need to wait for ajax here
+      wait_for_ajax
     }.to change {
       Todo.where(done: true).count
     }.by(1)
@@ -58,9 +58,9 @@ feature 'todos', :js => true do
 
     expect {
       within "table tr td" do
-        click_button "" # this is the 
+        click_button "" # the checkbox button has no text
       end
-      sleep 2 # blah we need to wait for ajax here
+      wait_for_ajax
     }.to change {
       Todo.where(done: true).count
     }.by(-1)
@@ -74,7 +74,7 @@ feature 'todos', :js => true do
 
     expect {
       click_button "Delete"
-      sleep 2 # blah we need to wait for ajax here
+      wait_for_ajax
     }.to change {
       Todo.count
     }.by(-1)
