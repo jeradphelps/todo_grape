@@ -12,13 +12,9 @@ A Grape api mounted on rails with an angular front end.
 ## Todo Api endpoints
 
 version=v1, method=GET, path=/todos(.:format)
-
 version=v1, method=GET, path=/todos/:id(.:format)
-
 version=v1, method=POST, path=/todos(.:format)
-
 version=v1, method=PUT, path=/todos/:id(.:format)
-
 version=v1, method=DELETE, path=/todos/:id(.:format)
 
 
