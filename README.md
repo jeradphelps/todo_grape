@@ -29,6 +29,11 @@ version=v1, method=DELETE, path=/todos/:id(.:format)
     > rails c
     > API::Root::routes.map { |r| r.to_s }
 
+## Full API Endpoint Docs
+
+    > rails s
+    > In your browser, visit: http://localhost:3000/apidoc
+
 ## Authentication
 
 ### API
