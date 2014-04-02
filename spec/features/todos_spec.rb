@@ -16,11 +16,9 @@ feature 'todos', :js => true do
 
   scenario "it expects them to be in some specific order" do
     expect("second todo").to appear_before "third todo"
-
   end
 
   scenario "it properly adds a todo" do
-    original_count = Todo.count
     fill_in "new-todo", with: "learn grape"
 
     expect {
@@ -30,8 +28,10 @@ feature 'todos', :js => true do
       Todo.count
     }.by(1)
 
-    expect(page).to have_content "learn grape"
-    expect("learn grape").to appear_after "third todo"
+    within "table" do
+      expect(page).to have_content "learn grape"
+    end
+    expect(page).to have_content "learn grape Successfully Created!"
   end
 
   scenario "it shows done todos with done class" do
@@ -51,7 +51,7 @@ feature 'todos', :js => true do
     }.by(1)
 
     expect(page).to have_css "td.done"
-    # blah expect button text to change.
+    expect(page).to have_content "Todo Successfully Marked As Done!"
 
 
     expect {
@@ -62,6 +62,7 @@ feature 'todos', :js => true do
     }.by(-1)
 
     expect(page).to_not have_css "td.done"
+    expect(page).to have_content "Todo Successfully Marked As Not Done!"
   end
 
   scenario "can delete todos" do
@@ -73,7 +74,37 @@ feature 'todos', :js => true do
     }.to change {
       Todo.count
     }.by(-1)
-    expect(page).to_not have_content("first todo")
+
+    within "table" do
+      expect(page).to_not have_content("first todo")
+    end
+    expect(page).to have_content "first todo Successfully Deleted!"
+  end
+
+  scenario "cannot add an empty todo" do
+    expect { click_button "Add" }.to change { Todo.count }.by(0)
+    expect(page).to have_content("Todo cannot be blank!")
+    # We know Todo.count has not changed, so use it to verify we added nothing to the interface
+    page.should have_css("table tr", :count => Todo.count)
+  end
+
+  # scenario "cannot add an empty todo after typing then deleting" do
+  #   fill_in "new-todo", with: "learn grape"
+  #   fill_in "new-todo", with: ""
+
+  #   expect { click_button "Add" }.to change { Todo.count }.by(0)
+  #   # expect(page).to have_content("Todo cannot be blank!")
+  #   # We know Todo.count has not changed, so use it to verify we added nothing to the interface
+  #   page.should have_css("table tr", :count => Todo.count)
+  # end
+
+  scenario "cannot add a duplicate todo" do
+    fill_in "new-todo", with: "first todo"
+    
+    expect { click_button "Add" }.to change { Todo.count }.by(0)
+    expect(page).to have_content("You already have to do that!")
+    # We know Todo.count has not changed, so use it to verify we added nothing to the interface
+    page.should have_css("table tr", :count => Todo.count)
   end
 end
 

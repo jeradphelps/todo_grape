@@ -3,7 +3,7 @@
 
 %div{ "ng-controller" => "TodoController" }
   %div.message-text {{message}}
-  %form{ "ng-submit" => "addTodo()" }
+  %form{ "ng-submit" => "add()" }
     %input#new-todo{ "type" => "text", "ng-model" => "newTodo.label" }
     %input{ "type" => "submit", "value" => "Add" }
 
