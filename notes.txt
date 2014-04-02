@@ -3,6 +3,7 @@ Things to do
 auth
 sleep in tests
 docs?
+hide table if empty
 
 AUTHENTICATION
 --------------

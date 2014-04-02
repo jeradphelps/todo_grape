@@ -1,5 +1,6 @@
 %div{ "ng-controller" => "TodoController" }
-  .message-text{ "ng-class" => "messageClass" } {{message}}
+  .message-text{ "ng-class" => "messageClass" } 
+    %span {{message}}
 
   .content-grid-wrapper.pure-g-r
     .content-container.pure-u-1-5.pure-hidden-tablet.pure-hidden-phone
