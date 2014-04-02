@@ -1,11 +1,12 @@
 #Todo Grape
 
-A Grape api mounted on rails with an angular front end.  
-Though the client and the api are housed within the smae app, the client uses the api endpoints just as if it were a completely separate application.
+This application implements both a Grape api mounted on rails and an angular client.  
+Though the client and the api are housed within the same app, the client uses the api endpoints just as if it were a completely separate application.
 
 ## To Run Locally
 
     > git clone https://github.com/jeradphelps/todo_grape.git
+    > cd todo_grape
     > bundle
     > rake db:migrate
     > rails s
