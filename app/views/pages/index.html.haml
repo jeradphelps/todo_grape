@@ -9,9 +9,7 @@
       Hint: The username is "username" and the password is "password", the form is already
       filled out for you.
       %form{ "ng-submit" => "add()" }
-        u: 
         %input#username{ "type" => "text", "ng-model" => "newAccessToken.username" }
-        p: 
         %input#password{ "type" => "text", "ng-model" => "newAccessToken.password" }
         %input.add-button{ "type" => "submit", "value" => "Login" }
     .content-container.pure-u-4-5{ "ng-hide" => "!haveToken()" }

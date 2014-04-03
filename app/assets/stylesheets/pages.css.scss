@@ -35,17 +35,21 @@ form {
 }
 
 .content-grid-wrapper {
-    margin-left:250px;
-    @media(max-width: 978px) { 
-      padding: 50px 25px;
-      margin-left: 0; 
-    }
+  margin-left:250px;
+  @media(max-width: 978px) { 
+    padding: 50px 25px;
+    margin-left: 0; 
+  }
   .content-container {
     padding-top: 50px;
   
     input[type=text] {
       margin: 30px 0;
       color: #555555;
+
+      @media(max-width: 978px) { 
+        margin: 0;
+      }
     }
     .add-button {
       @extend .pure-button; 
