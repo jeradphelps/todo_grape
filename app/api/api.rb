@@ -1,7 +1,7 @@
 module API
   class Root < Grape::API
 
-    # Do I build?
+    # Do I build? I did!
 
     helpers do
       def authenticate! access_token
