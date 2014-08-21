@@ -7,4 +7,6 @@ notifications:
 before_script:
   - mkdir -p shippable/testresults
 # write the rspec tests to the output dir
-script: bundle exec rake spec:rspec
+script:
+  - pwd
+  - bundle exec rake spec:rspec
