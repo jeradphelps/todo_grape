@@ -10,4 +10,6 @@ before_script:
 script:
   - pwd
   - bundle install
+  - bundle exec rake db:reset
+  - bundle exec rake db:test:clone
   - bundle exec rspec
