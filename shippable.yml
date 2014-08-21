@@ -9,4 +9,5 @@ before_script:
 # write the rspec tests to the output dir
 script:
   - pwd
+  - bundle install
   - bundle exec rake spec:rspec
