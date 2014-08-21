@@ -10,4 +10,4 @@ before_script:
 script:
   - pwd
   - bundle install
-  - bundle exec rake spec:rspec
+  - bundle exec rspec
