@@ -1,0 +1,7 @@
+build_environment: Ubuntu 12.04
+language: ruby
+rvm: 2.0.0-p353
+script:
+  - bundle exec rake db:reset
+  - bundle exec rake db:test:clone
+  - bundle exec rspec
