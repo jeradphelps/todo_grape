@@ -57,5 +57,3 @@ The angular client implements the authentication scheme described above.  Upon l
 ## Interesting Things
 * Grape as a Rack app v Grape on Rails
 * Angular
-
-
